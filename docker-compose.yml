@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: app
+    volumes: &web-volumes
+      - &app-volume .:/mini-karina:cached
+      - ~/.ssh:/root/.ssh
+      - ~/.bash_history:/root/.bash_history
+      - &bundle-cache-volume bundle_cache:/bundle_cache
+    command: sh -c
+
+volumes:
+  bundle_cache:

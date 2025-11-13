@@ -1,0 +1,9 @@
+tmp/*
+fixtures/*
+sources/*
+!tmp/.keep
+!fixtures/.keep
+!sources/.keep
+
+Gemfile.lock
+.DS_Store
