@@ -5,5 +5,4 @@ sources/*
 !fixtures/.keep
 !sources/.keep
 
-Gemfile.lock
 .DS_Store
