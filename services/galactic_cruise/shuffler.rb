@@ -1,5 +1,5 @@
-require './services/general/shuffler_prototype.rb'
-require "./models/galactic_cruise/smart_tile.rb"
+require './services/general/shuffler_prototype'
+require './models/galactic_cruise/smart_tile'
 
 module GalacticCruise
   class Shuffler < ShufflerPrototype

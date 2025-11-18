@@ -1,12 +1,16 @@
-require "./services/general/base_service.rb"
-require './services/general/tiles_placer'
-require './services/galactic_cruise/shuffler'
+require_relative 'compositor_prototype'
 
 module GalacticCruise
   module Compositors
-    class ExpertTileCompositor < BaseService
+    class ExpertTileCompositor < CompositorPrototype
       option :context, optional: false
-      
+
+      inheritance_strategy do
+        base_tiles %w[1 2 3 4 5 6]
+        advancement_tiles %w[A1 A2]
+        accommodation_tiles %w[B1 B2]
+      end
+
       def call
         shuffled_tiles = Shuffler.call(tiles:, positions:, tile_variant: :expert_tile)
         context.action_board_image = TilesPlacer.call(main_image: context.action_board_image, tiles: shuffled_tiles)
@@ -15,18 +19,6 @@ module GalacticCruise
       private
 
       def positions = [1]
-
-      def tiles
-        case context.game_mode
-        when :base then BASE
-        when :advancements then ADVANCEMENTS
-        when :accommodations then ACCOMMODATIONS
-        end
-      end
-      
-      BASE = %w(1 2 3 4 5 6)
-      ADVANCEMENTS = BASE + %w(A1 A2)
-      ACCOMMODATIONS = ADVANCEMENTS + %w(B1 B2)
     end
   end
 end

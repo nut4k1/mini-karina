@@ -1,12 +1,14 @@
-require "./services/general/base_service.rb"
-require './services/general/tiles_placer'
-require './services/galactic_cruise/shuffler'
+require_relative 'compositor_prototype'
 
 module GalacticCruise
   module Compositors
-    class CompanyGoalCompositor < BaseService
+    class CompanyGoalCompositor < CompositorPrototype
       option :context, optional: false
-      
+
+      inheritance_strategy do
+        base_tiles (1..6).map(&:to_s)
+      end
+
       def call
         shuffled_tiles = shuffler.call(tiles:, positions:, tile_variant: :company_goal)
         context.company_goal_board_image = TilesPlacer.call(

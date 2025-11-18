@@ -1,10 +1,10 @@
-require "mini_magick"
-require "./services/general/base_service.rb"
-require "./models/galactic_cruise/context.rb"
+require 'mini_magick'
+require './services/general/service_prototype'
+require './models/galactic_cruise/context'
 
 module GalacticCruise
   module Builders
-    class ContextBuilder < BaseService
+    class ContextBuilder < ServicePrototype
       option :game_mode
       option :players_count
 
@@ -22,12 +22,12 @@ module GalacticCruise
 
       def images
         {
-          action_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/action_board.png"),
-          technology_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/technology_board.png"),
-          marketing_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/marketing_board.png"),
-          upgrade_token_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/upgrade_token_board.png"),
-          guest_bonus_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/guest_bonus_board.png"),
-          company_goal_board_image: MiniMagick::Image.open("./fixtures/galactic_cruise/boards/company_goal_board.png")
+          action_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/action_board.png'),
+          technology_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/technology_board.png'),
+          marketing_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/marketing_board.png'),
+          upgrade_token_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/upgrade_token_board.png'),
+          guest_bonus_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/guest_bonus_board.png'),
+          company_goal_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/company_goal_board.png')
         }
       end
     end

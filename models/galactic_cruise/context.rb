@@ -4,7 +4,8 @@ module GalacticCruise
   class Context
     extend Dry::Initializer
 
-    attr_accessor :action_board_image, :technology_board_image, :upgrade_token_board_image, :guest_bonus_board_image, :company_goal_board_image, :marketing_board_image, :cruises
+    attr_accessor :action_board_image, :technology_board_image, :upgrade_token_board_image, :guest_bonus_board_image,
+                  :company_goal_board_image, :marketing_board_image, :cruises
 
     option :game_mode
     option :players_count

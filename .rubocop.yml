@@ -1,0 +1,16 @@
+AllCops:
+  NewCops: enable
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  AllowedMethods:
+    - namespace
+  CountAsOne:
+    - array
+    - hash
+Metrics/MethodLength:
+  CountAsOne:
+    - array
+    - hash

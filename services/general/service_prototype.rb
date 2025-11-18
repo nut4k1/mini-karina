@@ -1,7 +1,7 @@
 require 'dry-initializer'
-require_relative "concerns/callable.rb"
+require_relative 'concerns/callable'
 
-class BaseService
+class ServicePrototype
   extend Dry::Initializer
   include Callable
 end
