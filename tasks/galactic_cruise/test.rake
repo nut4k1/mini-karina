@@ -7,22 +7,26 @@ require './services/galactic_cruise/compositors'
 require './services/galactic_cruise/builders/context_builder'
 namespace :galactic_cruise do
   namespace :test do
+    task all: %i[action_board technology_board upgrade_token_board guest_bonus_board company_goal_board
+                 marketing_board]
+
     task :action_board do
       puts '==Start Testing generation of action board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 4
+
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::ActionTileCompositor.call(context:)
       GalacticCruise::Compositors::ExpertTileCompositor.call(context:)
       GalacticCruise::Compositors::LocationBonusCompositor.call(context:)
       GalacticCruise::Compositors::NeutralDevelopmentCompositor.call(context:)
-      context.action_board_image.write './tmp/test_action_board_image.png'
-      puts '==Generation saved at /tmp/test_action_board_image.png=='
+      context.action_board_image.write './tmp/action_board_image.png'
+      puts '==Generation saved at /tmp/action_board_image.png=='
     end
 
     task :technology_board do
       puts '==Start Testing generation of techno board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 2
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::TechnologyCompositor.call(context:)
@@ -33,7 +37,7 @@ namespace :galactic_cruise do
 
     task :upgrade_token_board do
       puts '==Start Testing generation of upgrade_token_board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 2
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::UpgradeTokenCompositor.call(context:)
@@ -43,7 +47,7 @@ namespace :galactic_cruise do
 
     task :guest_bonus_board do
       puts '==Start Testing generation of guest_bonus_board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 2
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::GuestBonusCompositor.call(context:)
@@ -53,7 +57,7 @@ namespace :galactic_cruise do
 
     task :company_goal_board do
       puts '==Start Testing generation of company_goal_board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 2
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::CompanyGoalCompositor.call(context:)
@@ -63,7 +67,7 @@ namespace :galactic_cruise do
 
     task :marketing_board do
       puts '==Start Testing generation of marketing_board=='
-      game_mode = :accommodations
+      game_mode = :accommodation
       players_count = 3
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::CruiseCompositor.call(context:)

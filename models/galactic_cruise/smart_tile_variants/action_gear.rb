@@ -3,7 +3,7 @@ module GalacticCruise
     module ActionGear
       KEY = :action_gear
 
-      def fixture_path = "#{super}meeples/"
+      def fixture_path = "#{super}gear_meeples/"
 
       def geometry_by_position
         {

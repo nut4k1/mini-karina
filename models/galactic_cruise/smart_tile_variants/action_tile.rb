@@ -4,7 +4,7 @@ module GalacticCruise
       KEY = :action_tile
 
       def orientation = @position.odd? ? 'top/' : 'bottom/'
-      def fixture_path = "#{super}meeples/#{orientation}"
+      def fixture_path = "#{super}action_tiles/#{orientation}"
 
       def geometry_by_position
         {

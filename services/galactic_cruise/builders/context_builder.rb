@@ -22,12 +22,12 @@ module GalacticCruise
 
       def images
         {
-          action_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/action_board.png'),
-          technology_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/technology_board.png'),
-          marketing_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/marketing_board.png'),
-          upgrade_token_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/upgrade_token_board.png'),
-          guest_bonus_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/guest_bonus_board.png'),
-          company_goal_board_image: MiniMagick::Image.open('./fixtures/galactic_cruise/boards/company_goal_board.png')
+          action_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/action_board.webp'),
+          technology_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/technology_board.webp'),
+          marketing_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/marketing_board.webp'),
+          upgrade_token_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/upgrade_token_board.webp'),
+          guest_bonus_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/guest_bonus_board.webp'),
+          company_goal_board_image: MiniMagick::Image.open('./sources/galactic_cruise/boards/company_goal_board.webp')
         }
       end
     end
