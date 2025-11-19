@@ -5,7 +5,7 @@ module GalacticCruise
     class CompanyGoalCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      mixed_strategy do
         base_tiles (1..6).map(&:to_s)
       end
 

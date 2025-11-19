@@ -5,7 +5,7 @@ module GalacticCruise
     class CruiseCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      mixed_strategy do
         base_tiles (1..15).map(&:to_s).map(&'B'.method(:+))
       end
 

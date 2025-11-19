@@ -5,7 +5,7 @@ module GalacticCruise
     class ActionTileCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      mixed_strategy do
         base_tiles %w[
           build_a_development
           hire_an_expert_worker

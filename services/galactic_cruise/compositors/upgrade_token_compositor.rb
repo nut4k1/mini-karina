@@ -5,7 +5,7 @@ module GalacticCruise
     class UpgradeTokenCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      mixed_strategy do
         base_tiles %w[4credits 4ads 4resources discounted_development]
         advancement_tiles %w[replace_worker action]
         accommodation_tiles %w[activate_segment 3reputation]

@@ -5,7 +5,7 @@ module GalacticCruise
     class ExpertTileCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      mixed_strategy do
         base_tiles %w[1 2 3 4 5 6]
         advancement_tiles %w[A1 A2]
         accommodation_tiles %w[B1 B2]

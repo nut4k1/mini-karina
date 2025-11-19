@@ -5,7 +5,7 @@ module GalacticCruise
     class GuestBonusCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
+      standalone_strategy do
         base_tiles %w[ad credit reputation resource victory_point]
         advancement_tiles %w[orange purple mint]
       end
@@ -24,7 +24,7 @@ module GalacticCruise
         return Shuffler if context.game_mode == :base
 
         lambda do |_|
-          ADVANCEMENTS.zip([1, 2, 3]).map do |name, position|
+          advancement_tiles.zip([1, 2, 3]).map do |name, position|
             SmartTile.new(tile_variant: :guest_bonus, name:, position:)
           end
         end

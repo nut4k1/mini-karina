@@ -5,8 +5,8 @@ module GalacticCruise
     class LocationBonusCompositor < CompositorPrototype
       option :context, optional: false
 
-      inheritance_strategy do
-        base_tiles %w[ad agenda_card credit reputation resource victory_point]
+      mixed_strategy do
+        advancement_tiles %w[ad agenda_card credit reputation resource victory_point]
       end
 
       def call
