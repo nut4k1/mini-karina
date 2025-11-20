@@ -2,6 +2,7 @@ tmp/*
 fixtures/*
 sources/*
 secrets.yml
+Gemfile.lock
 
 !tmp/.keep
 !fixtures/.keep
