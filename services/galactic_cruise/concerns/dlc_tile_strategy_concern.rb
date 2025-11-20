@@ -9,19 +9,7 @@ module DlcTileStrategyConcern
   end
 
   module DSLMethods
-    def self.extended(base)
-      define_default_setters(base)
-
-      base.define_method(:base_tiles) { instance_variable_get(:@base_tiles) }
-      base.define_method(:advancement_tiles) { instance_variable_get(:@advancement_tiles) }
-      base.define_method(:accommodation_tiles) { instance_variable_get(:@accommodation_tiles) }
-
-      base.define_method(:set_dsl_vars) do
-        set_base_tiles and set_advancement_tiles and set_accommodation_tiles
-      end
-    end
-
-    def define_default_setters(base)
+    def self.define_default_setters(base)
       base.define_method(:set_base_tiles) do
         instance_variable_set(:@base_tiles, [])
       end
@@ -32,6 +20,18 @@ module DlcTileStrategyConcern
 
       base.define_method(:set_accommodation_tiles) do
         instance_variable_set(:@accommodation_tiles, instance_variable_get(:@advancement_tiles))
+      end
+    end
+
+    def self.extended(base)
+      define_default_setters(base)
+
+      base.define_method(:base_tiles) { instance_variable_get(:@base_tiles) }
+      base.define_method(:advancement_tiles) { instance_variable_get(:@advancement_tiles) }
+      base.define_method(:accommodation_tiles) { instance_variable_get(:@accommodation_tiles) }
+
+      base.define_method(:set_dsl_vars) do
+        set_base_tiles and set_advancement_tiles and set_accommodation_tiles
       end
     end
 

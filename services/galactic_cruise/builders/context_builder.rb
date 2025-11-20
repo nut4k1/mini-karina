@@ -1,6 +1,7 @@
 require 'mini_magick'
 require './services/general/service_prototype'
 require './models/galactic_cruise/context'
+require './constants/galactic_cruise/neutral_gear_setup'
 
 module GalacticCruise
   module Builders
@@ -12,8 +13,7 @@ module GalacticCruise
         GalacticCruise::Context.new(
           game_mode:,
           players_count:,
-          # cruises: [],
-          # neutral_development: [],
+          neutral_gears_setup: NeutralGearSetup.random,
           **images
         )
       end

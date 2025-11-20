@@ -7,3 +7,4 @@ gem 'dry-initializer', '3.2.0'
 gem 'mini_magick', '5.3.1'
 gem 'rake', '13.3.1'
 gem 'rubocop', '~> 1.81', require: false
+gem 'telegram-bot-ruby', '~> 2.1'

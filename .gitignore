@@ -1,6 +1,8 @@
 tmp/*
 fixtures/*
 sources/*
+secrets.yml
+
 !tmp/.keep
 !fixtures/.keep
 !sources/.keep

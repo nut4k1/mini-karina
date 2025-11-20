@@ -19,7 +19,7 @@ namespace :galactic_cruise do
       GalacticCruise::Compositors::ActionTileCompositor.call(context:)
       GalacticCruise::Compositors::ExpertTileCompositor.call(context:)
       GalacticCruise::Compositors::LocationBonusCompositor.call(context:)
-      GalacticCruise::Compositors::NeutralDevelopmentCompositor.call(context:)
+      GalacticCruise::Compositors::ActionGearCompositor.call(context:)
       context.action_board_image.write './tmp/action_board_image.png'
       puts '==Generation saved at /tmp/action_board_image.png=='
     end
@@ -30,8 +30,8 @@ namespace :galactic_cruise do
       players_count = 2
       context = GalacticCruise::Builders::ContextBuilder.call(game_mode:, players_count:)
       GalacticCruise::Compositors::TechnologyCompositor.call(context:)
-      GalacticCruise::Compositors::NeutralDevelopmentCompositor.call(context:)
-      context.action_board_image.write './tmp/technology_board_image.png'
+      GalacticCruise::Compositors::TechnologyGearCompositor.call(context:)
+      context.technology_board_image.write './tmp/technology_board_image.png'
       puts '==Generation saved at /tmp/technology_board_image.png=='
     end
 

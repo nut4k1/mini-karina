@@ -9,27 +9,20 @@ require 'active_support/core_ext/object/blank'
 module GalacticCruise
   module Compositors
     class TechnologyGearCompositor < ServicePrototype
-      option :context, optional: false
+      option :context
 
       def call
-        return if context.players_count
+        return if context.technology_gear_positions.empty?
 
-        context.action_board_image = TilesPlacer.call(main_image: context.technology_board_image,
-                                                      tiles: technology_gears)
-      end
-    end
-
-    class NeutralDevelopmentShuffler < ServicePrototype
-      option :players_count
-
-      def call # rubocop:disable Metrics/AbcSize
-        conf = JSON.load_file('./configs/galactic_cruise/neutral_developments.json')
-        setup = conf[(1..10).map(&:to_s).sample]
-        build_tile = ->(tile_variant, position) { SmartTile.new(tile_variant:, name: 'gear', position:) }
-        action_gears = [build_tile.call(:action_gear, setup['actions'].first)]
-        action_gears << build_tile.call(:action_gear, setup['actions'].last) if players_count.in?([1, 2])
-        technology_gears = [build_tile.call(:technology_gear, setup['technologies'])] if players_count != 4
-        [action_gears, technology_gears]
+        shuffled_tiles = Shuffler.call(
+          tiles: ['gear'],
+          positions: context.technology_gear_positions,
+          tile_variant: :technology_gear
+        )
+        context.technology_board_image = TilesPlacer.call(
+          main_image: context.technology_board_image,
+          tiles: shuffled_tiles
+        )
       end
     end
   end
